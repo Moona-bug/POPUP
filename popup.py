@@ -22,11 +22,9 @@ info = response.json()
 
 df = pd.json_normalize(info["data"])
 
-print(df.columns.tolist())
-# print(df.head(10))
-
-fields = ["name", "symbol", "open", "high", "low", "close", "volume", "dividend", "price_currency", "date"]
-
 df.to_csv("stock_info.csv", index=False)
 
-print(f"Saved {len(info['data'])} rows to stock_info.csv")
+print(f"Saved {len(info['data'])} rows X {df.shape[1]} columns to stock_info.csv")
+print()
+for column in df:
+    print(f"Column name: {column}")
